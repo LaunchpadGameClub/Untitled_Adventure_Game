@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour
     public GameObject slotParent;
     public GameObject slot;
     public GameObject[] slots;
-    public Item[] items;
+    public List<Item> items;
     private Color transparent = 
     new Color32(255, 255, 255, 0);
     private Color opaque = 
@@ -67,7 +67,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    void DisplayItems()
+    public void DisplayItems()
     {
         for(int i = 0; i < slots.Length; i++)
         {
@@ -76,6 +76,7 @@ public class Inventory : MonoBehaviour
                 GameObject child = slots[i].transform.GetChild(0).gameObject;
                 Image img = child.GetComponent<Image>();
                 img.sprite = items[i].image;
+                // img.sprite = items.ElementAt(i).image;
                 img.color = opaque;
             }
         }

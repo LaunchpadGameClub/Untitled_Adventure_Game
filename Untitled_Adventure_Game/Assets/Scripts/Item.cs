@@ -20,4 +20,21 @@ public class Item : MonoBehaviour
     {
         
     }
+
+//Messages that are sent
+    public void AddItemToInventory()
+    {
+        var inventory = FindObjectOfType<Inventory>();
+        Debug.Log("Adding item");
+        inventory.items.Add(this);
+        inventory.DisplayItems();
+    }
+
+    public void UseItem()
+    {
+        var inventory = FindObjectOfType<Inventory>();
+        Debug.Log("Using item");
+        inventory.items.Remove(this);
+        inventory.DisplayItems();
+    }
 }
